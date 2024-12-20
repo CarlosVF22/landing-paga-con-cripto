@@ -1,11 +1,34 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero';
+import ProductsGrid from '../components/ProductsGrid';
+import productsRaw from '../data/products.json';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+
+// DATA
+const products = productsRaw.map(product => {
+	return ({
+    id: product.id,
+    title: product.title,
+    body_html: product.body_html,
+    product_type: product.product_type,
+    handle: product.handle,
+    status: product.status,
+    image: {
+        src: product.image.src
+    },
+    images: product.images.map(img => ({
+        src: img.src
+    })),
+    variants: product.variants.map(variant => ({
+        price_usd: variant.price,
+        price_btc: product.price_btc
+    }))
+})
+}) as Product[];
 ---
 
 <Layout>
-	<Welcome />
+	<Hero />
+	<ProductsGrid products={products} />
 </Layout>

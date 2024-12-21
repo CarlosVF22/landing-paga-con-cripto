@@ -2,7 +2,9 @@ export default function PrimaryButton({
     width = "w-full",
     text = "Obtén Acceso Temprano",
     height = "h-[52px]",
-    onClick = () => {},
+    onClick = () => {
+        console.log("click en primary button");
+    },
 }: {
     width?: string;
     text?: string;

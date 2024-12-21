@@ -49,7 +49,7 @@ export default function ProductsGrid({ products }: { products: Product[] }) {
                                     </p>
                                 </div>
                                 <div>
-                                    <SecondaryColorButton />
+                                    <SecondaryColorButton onClick={() => {}} />
                                 </div>
                             </div>
                         </div>

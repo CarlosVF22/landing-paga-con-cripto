@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import Hero from '../components/Hero';
 import ProductsGrid from '../components/ProductsGrid';
 import productsRaw from '../data/products.json';
+import Header from '../components/Header';
 
 
 // DATA
@@ -29,6 +30,9 @@ const products = productsRaw.map(product => {
 ---
 
 <Layout>
+	<Header client:load />
 	<Hero />
-	<ProductsGrid products={products} />
+	<div id="products">
+		<ProductsGrid products={products} />
+	</div>
 </Layout>

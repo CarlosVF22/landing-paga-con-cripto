@@ -1,15 +1,6 @@
-"use client";
-
-import { useState } from "react";
-import { Dialog, DialogPanel } from "@headlessui/react";
-import { XMarkIcon } from "@heroicons/react/24/outline";
-import {
-    TruckIcon,
-    ArrowUturnLeftIcon,
-    UserIcon,
-} from "@heroicons/react/16/solid";
-import Logo from "../../assets/Logo/default.svg";
 import PrimaryButton from "../Buttons/PrimaryButton";
+import Header from "../Header";
+import Badges from "../Badges";
 
 // const navigation = [
 //     { name: "Product", href: "#" },
@@ -18,82 +9,9 @@ import PrimaryButton from "../Buttons/PrimaryButton";
 //     { name: "Company", href: "#" },
 // ];
 
-export default function Hero({
-    logo = Logo,
-}: {
-    logo?: string | ImageMetadata;
-}) {
-    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
+export default function Hero() {
     return (
         <div className="bg-white">
-            <header className="absolute inset-x-0 top-0 z-50">
-                <nav
-                    aria-label="Global"
-                    className="flex items-center justify-between p-6 lg:px-8"
-                >
-                    <div className="flex lg:flex-1">
-                        <a href="#" className="-m-1.5 p-1.5">
-                            <span className="sr-only">Paga con cripto</span>
-                            <img
-                                alt="Logo de paga con cripto"
-                                src={logo instanceof Object ? logo.src : logo}
-                                className="h-12 md:h-16 w-auto"
-                            />
-                        </a>
-                    </div>
-                    <div className="justify-end flex md:hidden">
-                        <PrimaryButton width="w-[100px]" text="Descuento" />
-                    </div>
-                    <div className="justify-end hidden md:flex">
-                        <PrimaryButton
-                            width="w-[200px]"
-                            text="Descuento tu descuento"
-                        />
-                    </div>
-                </nav>
-                <Dialog
-                    open={mobileMenuOpen}
-                    onClose={setMobileMenuOpen}
-                    className="lg:hidden"
-                >
-                    <div className="fixed inset-0 z-50" />
-                    <DialogPanel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
-                        <div className="flex items-center justify-between">
-                            <a href="#" className="-m-1.5 p-1.5">
-                                <span className="sr-only">Paga con cripto</span>
-                                <img
-                                    alt="Logo de paga con cripto"
-                                    src="https://tailwindui.com/plus/img/logos/mark.svg?color=indigo&shade=600"
-                                    className="h-8 w-auto"
-                                />
-                            </a>
-                            <button
-                                type="button"
-                                onClick={() => setMobileMenuOpen(false)}
-                                className="-m-2.5 rounded-md p-2.5 text-gray-700"
-                            >
-                                <span className="sr-only">Close menu</span>
-                                <XMarkIcon
-                                    aria-hidden="true"
-                                    className="size-6"
-                                />
-                            </button>
-                        </div>
-                        <div className="mt-6 flow-root">
-                            <div className="-my-6 divide-y divide-gray-500/10">
-                                <div className="flex justify-end">
-                                    <PrimaryButton
-                                        width="w-[100px]"
-                                        text="Obtén tu descuento"
-                                    />
-                                </div>
-                            </div>
-                        </div>
-                    </DialogPanel>
-                </Dialog>
-            </header>
-
             <div className="relative isolate pt-14">
                 <svg
                     aria-hidden="true"
@@ -130,20 +48,7 @@ export default function Hero({
                 </svg>
                 <div className="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:flex lg:items-center lg:gap-x-10 lg:px-8 lg:py-40">
                     <div className="mx-auto max-w-2xl lg:mx-0 lg:flex-auto">
-                        <div className="flex">
-                            <span className="inline-flex text-xs mr-2 items-center rounded-md shadow-md shadow-blue_primary bg-blue_primary px-2 py-1 font-medium text-white ring-1 ring-inset ring-yellow-600/20">
-                                <TruckIcon className="size-4 mr-1 md:block hidden" />{" "}
-                                Envío gratis
-                            </span>
-                            <span className="inline-flex mr-2 items-center rounded-md shadow-md shadow-blue_primary bg-blue_primary px-2 py-1 text-xs font-medium text-white ring-1 ring-inset ring-yellow-600/20">
-                                <ArrowUturnLeftIcon className="size-4 mr-1 md:block hidden" />{" "}
-                                Devoluciones gratis
-                            </span>
-                            <span className="inline-flex items-center rounded-md bg-blue_primary shadow-md shadow-blue_primary px-2 py-1 text-xs font-medium text-white ring-1 ring-inset ring-yellow-600/20">
-                                <UserIcon className="size-4 mr-1 md:block hidden" />{" "}
-                                Atención 24/7
-                            </span>
-                        </div>
+                        <Badges />
                         <h1 className="mt-10 text-pretty text-5xl font-semibold tracking-tight text-gray-900 sm:text-7xl">
                             Paga con{" "}
                             <span className="text-orange_primary">

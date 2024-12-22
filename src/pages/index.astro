@@ -4,6 +4,8 @@ import Hero from '../components/Hero';
 import ProductsGrid from '../components/ProductsGrid';
 import productsRaw from '../data/products.json';
 import Header from '../components/Header';
+import type { Product } from '../types/index';
+import Footer from '../components/Footer';
 
 
 // DATA
@@ -31,8 +33,9 @@ const products = productsRaw.map(product => {
 
 <Layout>
 	<Header client:load />
-	<Hero />
+	<Hero client:load />
 	<div id="products">
 		<ProductsGrid products={products} />
 	</div>
+	<Footer />
 </Layout>

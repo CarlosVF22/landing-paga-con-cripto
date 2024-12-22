@@ -1,4 +1,5 @@
 import SecondaryColorButton from "../Buttons/SecondaryColorButton";
+import type { Product } from "../../types/index";
 
 export default function ProductsGrid({ products }: { products: Product[] }) {
     return (
@@ -48,9 +49,9 @@ export default function ProductsGrid({ products }: { products: Product[] }) {
                                         USD
                                     </p>
                                 </div>
-                                <div>
+                                {/* <div>
                                     <SecondaryColorButton onClick={() => {}} />
-                                </div>
+                                </div> */}
                             </div>
                         </div>
                     ))}

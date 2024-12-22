@@ -1,0 +1,44 @@
+---
+import productsRaw from '../../data/products.json';
+import type { Product } from '../../types/index';
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header';
+import ProductOverview from '../../components/ProductOverview';
+export const prerender = false;
+
+const {handle} = Astro.params;
+
+const products = productsRaw.map(product => {
+	return ({
+    id: product.id,
+    title: product.title,
+    body_html: product.body_html,
+    product_type: product.product_type,
+    handle: product.handle,
+    status: product.status,
+    image: {
+        src: product.image.src
+    },
+    images: product.images.map(img => ({
+        src: img.src
+    })),
+    variants: product.variants.map(variant => ({
+        price_usd: variant.price,
+        price_btc: product.price_btc
+    }))
+})
+}) as Product[];
+
+const product = products.find((product: Product) => product.handle === handle);
+
+if (!product) {
+    return Astro.redirect('/404');
+}
+
+---
+
+<Layout>
+    <Header client:load hiddenCallToAction={true} />
+    <ProductOverview product={product} client:load />
+</Layout>
+

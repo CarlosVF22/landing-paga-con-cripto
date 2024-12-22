@@ -71,6 +71,9 @@ export default function Hero() {
                             <PrimaryButton
                                 width="w-[400px]"
                                 text="Obtén un descuento de 10% en tu primera compra"
+                                onClick={() => {
+                                    window.location.href = "/#products";
+                                }}
                             />
                         </div>
                     </div>

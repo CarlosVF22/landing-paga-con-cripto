@@ -1,4 +1,3 @@
-import SecondaryColorButton from "../Buttons/SecondaryColorButton";
 import type { Product } from "../../types/index";
 
 export default function ProductsGrid({ products }: { products: Product[] }) {

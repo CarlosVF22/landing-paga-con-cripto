@@ -3,6 +3,7 @@ import Logo from "../../assets/Logo/default.svg";
 import PrimaryButton from "../Buttons/PrimaryButton";
 import { ShoppingCartIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import { Dialog, DialogPanel } from "@headlessui/react";
+import Cart from "../Cart";
 
 const Header = ({
     logo = Logo,
@@ -29,7 +30,7 @@ const Header = ({
                     </a>
                 </div>
                 <div className="md:mr-10">
-                    <ShoppingCartIcon className="size-8 text-gray-400" />
+                    <Cart />
                 </div>
                 {!hiddenCallToAction && (
                     <div className="justify-end flex md:hidden">

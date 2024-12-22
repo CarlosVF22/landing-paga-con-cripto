@@ -29,9 +29,9 @@ const Header = ({
                         />
                     </a>
                 </div>
-                <div className="md:mr-10">
+                <a className="md:mr-10" href="/checkout">
                     <Cart />
-                </div>
+                </a>
                 {!hiddenCallToAction && (
                     <div className="justify-end flex md:hidden">
                         <PrimaryButton

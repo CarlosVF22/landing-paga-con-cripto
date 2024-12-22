@@ -2,9 +2,11 @@
 import Header from "../components/Header";
 import Layout from "../layouts/Layout.astro";
 import CheckoutPage from "../components/Checkout";
+import Footer from "../components/Footer";
 ---
 
 <Layout>
     <Header hiddenCallToAction={true} client:load />
     <CheckoutPage client:load />
+    <Footer />
 </Layout>

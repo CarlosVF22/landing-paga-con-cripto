@@ -96,6 +96,20 @@ function ProductOverviewContent({ product }: { product: Product }) {
         }
     };
 
+    const handleBuyNow = async () => {
+        try {
+            addToCart({
+                id: product.id,
+                name: product.title,
+                price: product.variants[0].price_btc,
+            });
+            window.location.href = "/checkout";
+        } catch (error) {
+            toast.error("Error al agregar el producto al carrito");
+            console.error(error);
+        }
+    };
+
     return (
         <>
             <ToastContainer />
@@ -251,7 +265,10 @@ function ProductOverviewContent({ product }: { product: Product }) {
 
                                 <div className="mt-10 flex">
                                     <button
-                                        type="submit"
+                                        type="button"
+                                        onClick={async () =>
+                                            await handleBuyNow()
+                                        }
                                         className="flex max-w-xs flex-1 items-center justify-center rounded-md border border-transparent bg-orange_primary px-8 py-3 text-base font-medium text-white hover:bg-orange-300 focus:outline-none focus:ring-2 focus:ring-orange_primary focus:ring-offset-2 focus:ring-offset-gray-50 sm:w-full"
                                     >
                                         Comprar ahora

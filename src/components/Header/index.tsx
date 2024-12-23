@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Logo from "../../assets/Logo/default.svg";
 import PrimaryButton from "../Buttons/PrimaryButton";
-import { ShoppingCartIcon, XMarkIcon } from "@heroicons/react/24/outline";
+import { XMarkIcon } from "@heroicons/react/24/outline";
 import { Dialog, DialogPanel } from "@headlessui/react";
 import Cart from "../Cart";
 
@@ -39,7 +39,10 @@ const Header = ({
                             height="h-[30px]"
                             text="Oferta"
                             onClick={() => {
-                                console.log("click en call to action");
+                                window.gtag("event", "click_call_to_action", {
+                                    event_category: "engagement",
+                                    event_label: "mobile_header_offer",
+                                });
                                 window.location.href = "/#products";
                             }}
                         />
@@ -51,6 +54,10 @@ const Header = ({
                             width="w-[200px]"
                             text="Obtén tu descuento"
                             onClick={() => {
+                                window.gtag("event", "click_call_to_action", {
+                                    event_category: "engagement",
+                                    event_label: "desktop_header_offer",
+                                });
                                 window.location.href = "/#products";
                             }}
                         />

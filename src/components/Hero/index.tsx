@@ -65,6 +65,14 @@ export default function Hero() {
                                 width="w-[400px]"
                                 text="Obtén un descuento de 10% en tu primera compra"
                                 onClick={() => {
+                                    window.gtag(
+                                        "event",
+                                        "click_call_to_action",
+                                        {
+                                            event_category: "engagement",
+                                            event_label: "hero_call_to_action",
+                                        }
+                                    );
                                     window.location.href = "/#products";
                                 }}
                             />

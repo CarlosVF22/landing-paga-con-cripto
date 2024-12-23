@@ -39,3 +39,13 @@ export interface CartContextType {
     removeFromCart: (productId: number | string) => void;
     clearCart: () => void;
 }
+
+declare global {
+    interface Window {
+        gtag: (
+            command: string,
+            action: string,
+            params: Record<string, any>
+        ) => void;
+    }
+}

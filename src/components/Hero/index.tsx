@@ -78,7 +78,7 @@ export default function Hero() {
                             />
                         </div>
                     </div>
-                    <div className="mt-16 sm:mt-24 lg:mt-0 lg:shrink-0 lg:grow">
+                    <div className="mt-16 flex justify-center sm:mt-24 lg:mt-0 lg:shrink-0 lg:grow">
                         <img
                             alt=""
                             src={PhoneImage.src}

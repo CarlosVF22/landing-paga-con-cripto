@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { DialogTitle } from "@headlessui/react";
 import { CheckIcon } from "@heroicons/react/24/outline";
-import PrimaryButton from "../../Buttons/PrimaryButton";
 
 export default function FormRegistry() {
+    const [messageResponse, setMessageResponse] = useState<string | null>(null);
     // Manejador de evento onSubmit
     async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault();
@@ -26,12 +26,15 @@ export default function FormRegistry() {
             if (data.success) {
                 // TODO: Maneja el caso de éxito (mostrar mensaje, cerrar modal, etc.)
                 console.log("Contacto registrado con éxito en HubSpot");
-            } else {
-                // Manejo de error en la respuesta
-                console.error(
-                    "Ocurrió un error al registrar en HubSpot:",
-                    data.error
-                );
+                setMessageResponse("Haz sido registrado con éxito");
+            }
+            if (data.error.category === "INVALID_EMAIL") {
+                console.log("Email inválido");
+                setMessageResponse("Email inválido");
+            }
+            if (data.error.category === "CONFLICT") {
+                console.log("Email ya registrado");
+                setMessageResponse("Email ya registrado");
             }
         } catch (error) {
             // Manejo de errores de fetch o red
@@ -73,10 +76,6 @@ export default function FormRegistry() {
                         />
                     </div>
                     <div className="mt-4">
-                        {/* <PrimaryButton
-                            height="h-[40px]"
-                            text="Obtén tu descuento"
-                        /> */}
                         <button
                             type="submit"
                             className={`relative
@@ -91,6 +90,11 @@ export default function FormRegistry() {
                     </div>
                 </form>
             </div>
+            {messageResponse && (
+                <div className="mt-4 text-center bg-orange-200 rounded-lg p-2 text-sm text-orange_primary">
+                    {messageResponse}
+                </div>
+            )}
         </div>
     );
 }

@@ -35,8 +35,9 @@ const Header = ({
                 {!hiddenCallToAction && (
                     <div className="justify-end flex md:hidden">
                         <PrimaryButton
-                            width="w-[100px]"
-                            text="Descuento"
+                            width="w-[75px]"
+                            height="h-[30px]"
+                            text="Oferta"
                             onClick={() => {
                                 console.log("click en call to action");
                                 window.location.href = "/#products";
@@ -48,7 +49,7 @@ const Header = ({
                     <div className="justify-end hidden md:flex">
                         <PrimaryButton
                             width="w-[200px]"
-                            text="Descuento tu descuento"
+                            text="Obtén tu descuento"
                             onClick={() => {
                                 window.location.href = "/#products";
                             }}

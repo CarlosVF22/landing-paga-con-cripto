@@ -21,8 +21,10 @@ export interface Product {
 export interface CartItem {
     id: number | string;
     name: string;
-    price: string;
+    price_usd: string;
+    price_btc: string;
     quantity: number;
+    image: string;
 }
 
 // Tipo con las funciones que proveerá el contexto

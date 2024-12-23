@@ -87,7 +87,9 @@ function ProductOverviewContent({ product }: { product: Product }) {
             addToCart({
                 id: product.id,
                 name: product.title,
-                price: product.variants[0].price_btc,
+                price_usd: product.variants[0].price_usd,
+                price_btc: product.variants[0].price_btc,
+                image: product.image.src,
             });
             toast.success("Producto agregado al carrito");
         } catch (error) {
@@ -101,7 +103,9 @@ function ProductOverviewContent({ product }: { product: Product }) {
             addToCart({
                 id: product.id,
                 name: product.title,
-                price: product.variants[0].price_btc,
+                price_usd: product.variants[0].price_usd,
+                price_btc: product.variants[0].price_btc,
+                image: product.image.src,
             });
             window.location.href = "/checkout";
         } catch (error) {

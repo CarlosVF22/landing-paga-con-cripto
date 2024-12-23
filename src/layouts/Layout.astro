@@ -10,7 +10,22 @@ import { CartProvider } from "../Contexts/CartContext";
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>Paga con cripto</title>
+		<!-- Google tag (gtag.js) -->
+		<script
+			type="text/partytown"
+			src="https://www.googletagmanager.com/gtag/js?id=G-JZDH1CHXBS"
+		></script>
+		<script type="text/partytown">
+			window.dataLayer = window.dataLayer || [];
+			function gtag() {
+				dataLayer.push(arguments);
+			}
+			gtag("js", new Date());
+
+  gtag('config', 'G-JZDH1CHXBS');
+</script>
 	</head>
+	
 	<body>
 		<slot />
 	</body>

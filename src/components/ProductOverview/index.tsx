@@ -183,7 +183,7 @@ function ProductOverviewContent({ product }: { product: Product }) {
                             </div>
 
                             {/* Reviews */}
-                            <div className="mt-3">
+                            {/* <div className="mt-3">
                                 <h3 className="sr-only">Reviews</h3>
                                 <div className="flex items-center">
                                     <div className="flex items-center">
@@ -204,7 +204,7 @@ function ProductOverviewContent({ product }: { product: Product }) {
                                         {4} out of 5 stars
                                     </p>
                                 </div>
-                            </div>
+                            </div> */}
 
                             <div className="mt-6">
                                 <h3 className="sr-only">Description</h3>
@@ -219,7 +219,7 @@ function ProductOverviewContent({ product }: { product: Product }) {
 
                             <form className="mt-6">
                                 {/* Colors */}
-                                <div>
+                                {/* <div>
                                     <h3 className="text-sm font-medium text-gray-600">
                                         Color
                                     </h3>
@@ -254,7 +254,7 @@ function ProductOverviewContent({ product }: { product: Product }) {
                                             ))}
                                         </RadioGroup>
                                     </fieldset>
-                                </div>
+                                </div> */}
                                 <div className="mt-10 flex">
                                     <button
                                         type="button"
@@ -288,7 +288,7 @@ function ProductOverviewContent({ product }: { product: Product }) {
                                     Additional details
                                 </h2>
 
-                                <div className="divide-y divide-gray-200 border-t">
+                                {/* <div className="divide-y divide-gray-200 border-t">
                                     {[
                                         {
                                             name: "Features",
@@ -341,7 +341,7 @@ function ProductOverviewContent({ product }: { product: Product }) {
                                             </DisclosurePanel>
                                         </Disclosure>
                                     ))}
-                                </div>
+                                </div> */}
                             </section>
                         </div>
                     </div>

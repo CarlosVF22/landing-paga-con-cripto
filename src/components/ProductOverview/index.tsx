@@ -137,7 +137,7 @@ function ProductOverviewContent({ product }: { product: Product }) {
                                                 <img
                                                     alt=""
                                                     src={image.src}
-                                                    className="size-full object-cover"
+                                                    className="size-full object-contain"
                                                 />
                                             </span>
                                             <span
@@ -155,7 +155,7 @@ function ProductOverviewContent({ product }: { product: Product }) {
                                         <img
                                             alt={image.src}
                                             src={image.src}
-                                            className="aspect-square w-full object-cover sm:rounded-lg"
+                                            className="aspect-square w-full object-contain sm:rounded-lg"
                                         />
                                     </TabPanel>
                                 ))}

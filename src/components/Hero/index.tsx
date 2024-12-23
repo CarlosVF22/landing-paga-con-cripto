@@ -1,13 +1,6 @@
 import PrimaryButton from "../Buttons/PrimaryButton";
-import Header from "../Header";
 import Badges from "../Badges";
-
-// const navigation = [
-//     { name: "Product", href: "#" },
-//     { name: "Features", href: "#" },
-//     { name: "Marketplace", href: "#" },
-//     { name: "Company", href: "#" },
-// ];
+import PhoneImage from "../../assets/Banner/phone.png";
 
 export default function Hero() {
     return (
@@ -78,7 +71,13 @@ export default function Hero() {
                         </div>
                     </div>
                     <div className="mt-16 sm:mt-24 lg:mt-0 lg:shrink-0 lg:grow">
-                        <svg
+                        <img
+                            alt=""
+                            src={PhoneImage.src}
+                            width={316}
+                            height={684}
+                        />
+                        {/* <svg
                             role="img"
                             viewBox="0 0 366 729"
                             className="mx-auto w-[22.875rem] max-w-full drop-shadow-xl"
@@ -108,7 +107,7 @@ export default function Hero() {
                                     src="https://tailwindui.com/plus/img/component-images/mobile-app-screenshot.png"
                                 />
                             </foreignObject>
-                        </svg>
+                        </svg> */}
                     </div>
                 </div>
             </div>

@@ -49,7 +49,7 @@ function CheckoutContent() {
     };
 
     return (
-        <div className="bg-white h-full">
+        <div className="bg-white">
             <ModalLayout open={openModal} setOpen={setOpenModal}>
                 <FormRegistry />
             </ModalLayout>
@@ -89,7 +89,7 @@ function CheckoutContent() {
                                             <img
                                                 alt={product.image}
                                                 src={product.image}
-                                                className="size-24 rounded-md object-cover sm:size-48"
+                                                className="size-24 rounded-md object-contain sm:size-48"
                                             />
                                         </div>
 

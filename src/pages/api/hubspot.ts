@@ -5,7 +5,7 @@ export const POST: APIRoute = async ({ request }) => {
     try {
         // 1. Obtenemos los datos del formulario.
         //    (Cambia según tus campos: email, firstname, etc.)
-        const { email, firstname, lastname } = await request.json();
+        const { email } = await request.json();
 
         // 2. Tu token privado de HubSpot debe estar en variables de entorno
         //    (por ej., .env) para no exponerlo públicamente.
@@ -15,8 +15,6 @@ export const POST: APIRoute = async ({ request }) => {
         const contactPayload = {
             properties: {
                 email,
-                firstname,
-                lastname,
             },
         };
 

@@ -205,6 +205,27 @@ function ProductOverviewContent({ product }: { product: Product }) {
                                     </p>
                                 </div>
                             </div> */}
+                            <div className="mt-10 flex">
+                                <button
+                                    type="button"
+                                    onClick={async () =>
+                                        await handleAddToCart()
+                                    }
+                                    className="flex max-w-xs flex-1 items-center justify-center rounded-md border border-transparent bg-gray-400 px-8 py-3 text-base font-medium text-white hover:bg-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 focus:ring-offset-gray-50 sm:w-full"
+                                >
+                                    Agregar al carrito
+                                </button>
+                            </div>
+
+                            <div className="mt-10 flex">
+                                <button
+                                    type="button"
+                                    onClick={async () => await handleBuyNow()}
+                                    className="flex max-w-xs flex-1 items-center justify-center rounded-md border border-transparent bg-orange_primary px-8 py-3 text-base font-medium text-white hover:bg-orange-300 focus:outline-none focus:ring-2 focus:ring-orange_primary focus:ring-offset-2 focus:ring-offset-gray-50 sm:w-full"
+                                >
+                                    Comprar ahora
+                                </button>
+                            </div>
 
                             <div className="mt-6">
                                 <h3 className="sr-only">Description</h3>
@@ -255,29 +276,6 @@ function ProductOverviewContent({ product }: { product: Product }) {
                                         </RadioGroup>
                                     </fieldset>
                                 </div> */}
-                                <div className="mt-10 flex">
-                                    <button
-                                        type="button"
-                                        onClick={async () =>
-                                            await handleAddToCart()
-                                        }
-                                        className="flex max-w-xs flex-1 items-center justify-center rounded-md border border-transparent bg-gray-400 px-8 py-3 text-base font-medium text-white hover:bg-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 focus:ring-offset-gray-50 sm:w-full"
-                                    >
-                                        Agregar al carrito
-                                    </button>
-                                </div>
-
-                                <div className="mt-10 flex">
-                                    <button
-                                        type="button"
-                                        onClick={async () =>
-                                            await handleBuyNow()
-                                        }
-                                        className="flex max-w-xs flex-1 items-center justify-center rounded-md border border-transparent bg-orange_primary px-8 py-3 text-base font-medium text-white hover:bg-orange-300 focus:outline-none focus:ring-2 focus:ring-orange_primary focus:ring-offset-2 focus:ring-offset-gray-50 sm:w-full"
-                                    >
-                                        Comprar ahora
-                                    </button>
-                                </div>
                             </form>
 
                             <section

@@ -20,16 +20,25 @@ const Header = ({
                 className="flex items-center justify-between p-6 lg:px-8"
             >
                 <div className="flex lg:flex-1">
-                    <a href="/" className="-m-1.5 p-1.5 cursor-pointer">
+                    <a
+                        href="/"
+                        className="-m-1.5 p-1.5 cursor-pointer"
+                        title="Link al home"
+                    >
                         <span className="sr-only">Paga con cripto</span>
                         <img
                             alt="Logo de paga con cripto"
+                            title="Paga con cripto: Pagas con cripto en toda la tienda"
                             src={logo instanceof Object ? logo.src : logo}
                             className="h-12 md:h-16 w-auto"
                         />
                     </a>
                 </div>
-                <a className="md:mr-10" href="/checkout">
+                <a
+                    className="md:mr-10"
+                    href="/checkout"
+                    title="Link al carrito de compras"
+                >
                     <Cart />
                 </a>
                 {!hiddenCallToAction && (
@@ -76,6 +85,7 @@ const Header = ({
                             <span className="sr-only">Paga con cripto</span>
                             <img
                                 alt="Logo de paga con cripto"
+                                title="Paga con cripto: Pagas con cripto en toda la tienda"
                                 src="https://tailwindui.com/plus/img/logos/mark.svg?color=indigo&shade=600"
                                 className="h-8 w-auto"
                             />

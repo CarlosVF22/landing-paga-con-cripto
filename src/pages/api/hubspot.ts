@@ -1,53 +1,96 @@
 // src/pages/api/hubspotForm.ts
 import type { APIRoute } from "astro";
+import type { CartItem } from "../../types";
 
 export const POST: APIRoute = async ({ request }) => {
     try {
-        // 1. Obtenemos los datos del formulario.
-        //    (Cambia según tus campos: email, firstname, etc.)
-        const { email } = await request.json();
+        // 1. Obtenemos los datos del formulario
+        const { email, cart } = await request.json();
+        const cartItems = cart.cart as CartItem[];
 
         // 2. Tu token privado de HubSpot debe estar en variables de entorno
-        //    (por ej., .env) para no exponerlo públicamente.
         const hubspotToken = import.meta.env.HUBSPOT_PRIVATE_TOKEN;
 
-        // 3. Preparamos la data para crear el contacto en HubSpot
+        // 3. Crear el contacto en HubSpot
         const contactPayload = {
-            properties: {
-                email,
-            },
+            properties: { email },
         };
-
-        // 4. Llamamos a la API de contactos de HubSpot
-        //    Documentación: https://developers.hubspot.com/docs/api/crm/contacts
-        const response = await fetch(
+        const responseAddContact = await fetch(
             "https://api.hubapi.com/crm/v3/objects/contacts",
             {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
-                    Authorization: `Bearer ${hubspotToken}`, // Token de tu app privada
+                    Authorization: `Bearer ${hubspotToken}`,
                 },
                 body: JSON.stringify(contactPayload),
             }
         );
 
-        // 5. Validamos que la respuesta de HubSpot sea exitosa
-        if (!response.ok) {
-            const error = await response.json();
-            console.error("Error al crear contacto en HubSpot:", error);
-            return new Response(JSON.stringify({ success: false, error }), {
-                status: 500,
-            });
+        // **Consume** la respuesta del contacto solo una vez
+        const contactData = await responseAddContact.json();
+
+        // 4. Validar la respuesta de contacto
+        if (!responseAddContact.ok) {
+            console.error("Error al crear contacto en HubSpot:", contactData);
+            return new Response(
+                JSON.stringify({ success: false, error: contactData }),
+                {
+                    status: 500,
+                }
+            );
         }
 
-        // 6. Si todo salió bien, parseamos la respuesta y respondemos al cliente
-        const hubspotData = await response.json();
-        return new Response(
-            JSON.stringify({ success: true, data: hubspotData }),
+        // 5. Crear el Deal (incluyendo cart_info si quieres almacenarlo ahí)
+        const dealPayload = {
+            properties: {
+                dealname: "Compra en la tienda",
+                amount: 100,
+                dealstage: "appointmentscheduled",
+                pipeline: "default",
+                // Si el nombre interno de tu campo personalizado es "cart_info"
+                cart_info: JSON.stringify(cartItems),
+            },
+        };
+        const responseCreateDeal = await fetch(
+            "https://api.hubapi.com/crm/v3/objects/deals",
             {
-                status: 200,
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: `Bearer ${hubspotToken}`,
+                },
+                body: JSON.stringify(dealPayload),
             }
+        );
+
+        // **Consume** la respuesta del Deal solo una vez
+        const dealData = await responseCreateDeal.json();
+
+        // 6. Validar la respuesta del Deal
+        if (!responseCreateDeal.ok) {
+            console.error("Error al crear Deal en HubSpot:", dealData);
+            return new Response(
+                JSON.stringify({ success: false, error: dealData }),
+                {
+                    status: 500,
+                }
+            );
+        }
+
+        // 7. Si deseas usar el ID del deal en algún momento
+        const dealId = dealData.id;
+
+        // 8. Responder al cliente
+        return new Response(
+            JSON.stringify({
+                success: true,
+                data: {
+                    hubspotDataContact: contactData,
+                    hubspotDataDeal: dealData,
+                },
+            }),
+            { status: 200 }
         );
     } catch (error) {
         console.error("Error en /api/hubspotForm:", error);

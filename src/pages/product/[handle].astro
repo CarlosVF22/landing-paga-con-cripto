@@ -14,6 +14,7 @@ const products = productsRaw.map(product => {
     title: product.title,
     body_html: product.body_html,
     product_type: product.product_type,
+    tags: product.tags,
     handle: product.handle,
     status: product.status,
     image: {
@@ -35,9 +36,17 @@ if (!product) {
     return Astro.redirect('/404');
 }
 
+const title = `${product.title}`;
+const tags = product.tags;
+
 ---
 
 <Layout>
+    <head>
+        <title>{title}</title>
+        <meta name="keywords" content={`${tags}`} /> 
+        <meta name="robots" content="index. follow"/>
+    </head>
     <Header client:load hiddenCallToAction={true} />
     <div class="mt-10">
         <ProductOverview product={product} client:load />

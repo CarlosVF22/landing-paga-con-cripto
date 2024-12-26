@@ -3,6 +3,7 @@ export interface Product {
     title: string;
     body_html: string;
     product_type: string;
+    tags: string;
     handle: string;
     status: string;
     image: {

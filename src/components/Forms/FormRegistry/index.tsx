@@ -1,12 +1,30 @@
 import React, { useState } from "react";
 import { DialogTitle } from "@headlessui/react";
 import { CheckIcon } from "@heroicons/react/24/outline";
+import CartWrapper from "../../Wrapper/CartWrapper";
+import { useCart } from "../../../Contexts/CartContext";
+import CircleLoadingSpinner from "../../Spinners/CircleLoadingSpinner";
 
 export default function FormRegistry() {
+    return (
+        <CartWrapper>
+            <FormRegistryContent />
+        </CartWrapper>
+    );
+}
+
+function FormRegistryContent() {
     const [messageResponse, setMessageResponse] = useState<string | null>(null);
+    const [disabled, setDisabled] = useState<boolean>(false);
+    const [loading, setLoading] = useState<boolean>(false);
+    const cart = useCart();
+
     // Manejador de evento onSubmit
     async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault();
+        // Deshabilitamos el botón para evitar doble envío
+        setLoading(true);
+        setDisabled(true);
 
         // Obtenemos la referencia al formulario y su valor de email
         const form = e.currentTarget;
@@ -19,7 +37,7 @@ export default function FormRegistry() {
                 headers: {
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify({ email }),
+                body: JSON.stringify({ email, cart }),
             });
 
             const data = await res.json();
@@ -39,6 +57,10 @@ export default function FormRegistry() {
         } catch (error) {
             // Manejo de errores de fetch o red
             console.error("Error al enviar datos al endpoint:", error);
+        } finally {
+            // Habilitamos el botón nuevamente
+            setDisabled(false);
+            setLoading(false);
         }
     }
 
@@ -70,6 +92,7 @@ export default function FormRegistry() {
                         <input
                             id="email"
                             name="email"
+                            required
                             type="email"
                             placeholder="correo@gmail.com"
                             className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-orange-300 sm:text-sm/6"
@@ -77,14 +100,26 @@ export default function FormRegistry() {
                     </div>
                     <div className="mt-4">
                         <button
+                            disabled={disabled}
                             type="submit"
                             className={`relative
                                         hover:scale-90
-                                        shadow-orange_primary w-full h-[30px] rounded-[16px] bg-orange_primary text-center text-white shadow-lg transition-all hover:opacity-90 active:transform active:scale-95 overflow-hidden`}
+                                         w-full h-[30px] rounded-[16px] ${
+                                             loading
+                                                 ? "bg-orange-300"
+                                                 : "bg-orange_primary shadow-orange_primary"
+                                         } text-center text-white shadow-lg transition-all hover:opacity-90 active:transform active:scale-95 overflow-hidden`}
                         >
-                            <span className="relative z-10 font-semibold">
-                                Obtén tu descuento
-                            </span>
+                            <div className="flex justify-center">
+                                {loading && (
+                                    <div className="pr-2">
+                                        <CircleLoadingSpinner />
+                                    </div>
+                                )}
+                                <span className="relative z-10 font-semibold">
+                                    Obtén tu descuento
+                                </span>
+                            </div>
                             <div className="absolute inset-0 bg-white opacity-20 blur-xl rounded-full scale-150"></div>
                         </button>
                     </div>

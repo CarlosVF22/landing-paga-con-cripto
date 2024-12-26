@@ -13,13 +13,17 @@ export default function ProductsGrid({ products }: { products: Product[] }) {
                             className="group relative flex flex-col overflow-hidden rounded-lg border border-gray-200 bg-white"
                         >
                             <img
-                                alt={"alt"}
+                                alt={product.title}
+                                title={product.title}
                                 src={product.image.src}
                                 className="aspect-[3/4] w-full object-contain group-hover:opacity-75 sm:aspect-auto sm:h-96"
                             />
                             <div className="flex flex-1 flex-col space-y-2 p-4">
                                 <h3 className="text-sm font-medium text-gray-900">
-                                    <a href={`/product/${product.handle}`}>
+                                    <a
+                                        href={`/product/${product.handle}`}
+                                        title={product.title}
+                                    >
                                         <span
                                             aria-hidden="true"
                                             className="absolute inset-0"
@@ -48,9 +52,6 @@ export default function ProductsGrid({ products }: { products: Product[] }) {
                                         USD
                                     </p>
                                 </div>
-                                {/* <div>
-                                    <SecondaryColorButton onClick={() => {}} />
-                                </div> */}
                             </div>
                         </div>
                     ))}

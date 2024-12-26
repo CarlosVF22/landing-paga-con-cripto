@@ -74,6 +74,7 @@ export default function Footer({
                 <div>
                     <img
                         alt="Logo de paga con cripto"
+                        title="Paga con cripto: Pagas con cripto en toda la tienda"
                         src={logo instanceof Object ? logo.src : logo}
                         className="h-12 md:h-16 w-auto"
                     />

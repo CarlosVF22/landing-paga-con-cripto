@@ -18,17 +18,17 @@
 		<meta property="og:image" content="https://www.pagaconcripto.com.co/_astro/default.ClS_eH-T.svg" />
 		<title>Paga con cripto</title>
 		<!-- Google tag (gtag.js) -->
-		<script
-			type="text/partytown"
-			src="https://www.googletagmanager.com/gtag/js?id=G-JZDH1CHXBS"
-			is:inline
-		></script>
-		<script type="text/partytown" is:inline>
-			window.dataLayer = window.dataLayer || [];
-			function gtag(){dataLayer.push(arguments);}
-			gtag('js', new Date());
-			gtag('config', 'G-JZDH1CHXBS');
-		  </script>
+        <script type="text/partytown" is:inline>
+            if (window.location.hostname !== 'localhost') {
+                var script = document.createElement('script');
+                script.src = 'https://www.googletagmanager.com/gtag/js?id=G-JZDH1CHXBS';
+                document.head.appendChild(script);
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', 'G-JZDH1CHXBS');
+            }
+        </script>
 	</head>
 
 	<body>

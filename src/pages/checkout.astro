@@ -6,6 +6,23 @@ import Footer from "../components/Footer";
 ---
 
 <Layout>
+  <head>
+    <!-- Google tag (gtag.js) -->
+    <script type="text/partytown" is:inline>
+        if (window.location.hostname !== 'localhost') {
+            var script = document.createElement('script');
+            script.src = 'https://www.googletagmanager.com/gtag/js?id=G-JZDH1CHXBS';
+            document.head.appendChild(script);
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-JZDH1CHXBS');
+            gtag('event', 'ads_conversion_Checkout_1', {
+                // <event_parameters>
+            });
+        }
+    </script>
+</head>
     <Header hiddenCallToAction={true} client:load />
     <CheckoutPage client:load />
     <Footer />

@@ -21,17 +21,26 @@ import  SpeedInsights  from "@vercel/speed-insights/astro"
 		<meta property="og:description" content="Compra cualquier producto con criptomonedas, entregas gratis a toda Colombia, 30 días para devoluciones y soporte 24/7. Tu seguridad y satisfacción son nuestra prioridad." />
 		<meta property="og:image" content="https://www.pagaconcripto.com.co/_astro/default.ClS_eH-T.svg" />
 		<!-- Google tag (gtag.js) -->
-        <script type="text/partytown" is:inline>
-            if (window.location.hostname !== 'localhost') {
-                var script = document.createElement('script');
-                script.src = 'https://www.googletagmanager.com/gtag/js?id=G-JZDH1CHXBS';
-                document.head.appendChild(script);
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag('js', new Date());
-                gtag('config', 'G-JZDH1CHXBS');
-            }
-        </script>
+		<script type="text/partytown" is:inline>
+			if (window.location.hostname !== 'localhost') {
+			  // Carga dinámica del script de gtag.js con UNO de los IDs (puede ser cualquiera).
+			  var script = document.createElement('script');
+			  script.src = 'https://www.googletagmanager.com/gtag/js?id=G-JZDH1CHXBS'; 
+			  // O podrías cargarlo con AW-XXXXXXX. Lo importante es que sea la librería "gtag/js"
+			  document.head.appendChild(script);
+		  
+			  // Inicializa gtag
+			  window.dataLayer = window.dataLayer || [];
+			  function gtag(){ dataLayer.push(arguments); }
+			  gtag('js', new Date());
+		  
+			  // Config de GA
+			  gtag('config', 'G-JZDH1CHXBS');
+		  
+			  // Config de Google Ads
+			  gtag('config', 'AW-10780733675');
+			}
+		  </script>
 	</head>
 
 	<body>

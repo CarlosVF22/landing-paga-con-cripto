@@ -85,6 +85,9 @@ export default function Hero() {
                             src={PhoneImage.src}
                             width={316}
                             height={684}
+                            loading="eager"
+                            fetchPriority="high"
+                            decoding="sync"
                         />
                     </div>
                 </div>

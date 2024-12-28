@@ -77,6 +77,7 @@ export default function Footer({
                         title="Paga con cripto: Pagas con cripto en toda la tienda"
                         src={logo instanceof Object ? logo.src : logo}
                         className="h-12 md:h-16 w-auto"
+                        loading="lazy"
                     />
                 </div>
                 <p className="mt-8 text-center text-sm/6 text-gray-400 md:order-1 md:mt-0">

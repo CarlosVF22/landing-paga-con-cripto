@@ -20,41 +20,26 @@ import  SpeedInsights  from "@vercel/speed-insights/astro"
 		<meta property="og:title" content="Paga con Cripto | Pagos Seguros con Criptomonedas" />
 		<meta property="og:description" content="Compra cualquier producto con criptomonedas, entregas gratis a toda Colombia, 30 días para devoluciones y soporte 24/7. Tu seguridad y satisfacción son nuestra prioridad." />
 		<meta property="og:image" content="https://www.pagaconcripto.com.co/_astro/default.ClS_eH-T.svg" />
-		<!-- Google tag (gtag.js) -->
-		<!-- <script type="text/partytown" is:inline>
-			if (window.location.hostname !== '') {
-			  (function(w,d,s,l,i){
-				w[l] = w[l] || [];
-				w[l].push({'gtm.start': new Date().getTime(), event:'gtm.js'});
-				var f = d.getElementsByTagName(s)[0],
-					j = d.createElement(s),
-					dl = l !== 'dataLayer' ? '&l='+l : '';
-				j.async = true;
-				j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
-				f.parentNode.insertBefore(j,f);
-			  })(window, document, 'script', 'dataLayer', 'GTM-M9P3FVLR');
-			}
-		  </script> -->
-		  <script>
-			window.dataLayer = window.dataLayer || [];
-		  </script>
-		  
-		  <!-- Google Tag Manager -->
-		  <script type="text/partytown" is:inline>
-		  if (window.location.hostname !== 'localhost') {
-			(function(w,d,s,l,i){
-			  w[l] = w[l] || [];
-			  w[l].push({'gtm.start': new Date().getTime(), event:'gtm.js'});
-			  var f = d.getElementsByTagName(s)[0],
-				  j = d.createElement(s),
-				  dl = l !== 'dataLayer' ? '&l='+l : '';
-			  j.async = true;
-			  j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
-			  f.parentNode.insertBefore(j,f);
-			})(window, document, 'script', 'dataLayer', 'GTM-M9P3FVLR');
-		  }
+		<script>
+		window.dataLayer = window.dataLayer || [];
+		</script>
+		
+		<!-- Google Tag Manager -->
+		<script type="text/partytown" is:inline>
+		if (window.location.hostname !== 'localhost') {
+		(function(w,d,s,l,i){
+			w[l] = w[l] || [];
+			w[l].push({'gtm.start': new Date().getTime(), event:'gtm.js'});
+			var f = d.getElementsByTagName(s)[0],
+				j = d.createElement(s),
+				dl = l !== 'dataLayer' ? '&l='+l : '';
+			j.async = true;
+			j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+			f.parentNode.insertBefore(j,f);
+		})(window, document, 'script', 'dataLayer', 'GTM-M9P3FVLR');
+		}
 
-		  </script>
+		</script>
 	</head>
 
 	<body>

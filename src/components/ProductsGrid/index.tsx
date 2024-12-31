@@ -17,6 +17,9 @@ export default function ProductsGrid({ products }: { products: Product[] }) {
                                 title={product.title}
                                 src={product.image.src}
                                 className="aspect-[3/4] w-full object-contain group-hover:opacity-75 sm:aspect-auto sm:h-96"
+                                loading="lazy"
+                                fetchPriority="low"
+                                decoding="async"
                             />
                             <div className="flex flex-1 flex-col space-y-2 p-4">
                                 <h3 className="text-sm font-medium text-gray-900">

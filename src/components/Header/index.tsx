@@ -24,6 +24,7 @@ const Header = ({
                         href="/"
                         className="-m-1.5 p-1.5 cursor-pointer"
                         title="Link al home"
+                        content="Carrito de compras"
                     >
                         <span className="sr-only">Paga con cripto</span>
                         <img
@@ -38,6 +39,7 @@ const Header = ({
                     className="md:mr-10"
                     href="/checkout"
                     title="Link al carrito de compras"
+                    content="Carrito de compras"
                 >
                     <Cart />
                 </a>

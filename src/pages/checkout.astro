@@ -6,19 +6,17 @@ import Footer from "../components/Footer";
 ---
 
 <Layout>
-  <head>
-    <!-- Google tag (gtag.js) -->
-    <script type="text/partytown" is:inline>
-        if (typeof window !== "undefined" && window.location.hostname !== "localhost") {
-          window.dataLayer = window.dataLayer || [];
-          window.dataLayer.push({
-            event: "ads_conversion_Checkout_1",
-            // Puedes añadir aquí parámetros adicionales si lo deseas:
-            // myParam: 'algo',
-          });
-        }
-      </script>
-</head>
+    <head>
+        <!-- Google Tag Manager -->
+        <script type="text/partytown" is:inline>
+            if (window.location.hostname !== '') {
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', 'G-JZDH1CHXBS');
+            }
+        </script>
+    </head>
     <Header hiddenCallToAction={true} client:load />
     <CheckoutPage client:load />
     <Footer />

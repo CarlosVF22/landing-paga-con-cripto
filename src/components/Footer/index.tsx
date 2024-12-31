@@ -85,6 +85,17 @@ export default function Footer({
                     reservados.
                 </p>
             </div>
+            <div className="flex justify-center py-2">
+                <span className="text-gray-400">
+                    Desarrollador por{" "}
+                    <a
+                        className="hover:underline font-bold"
+                        href="https://www.carlosvasquez.dev"
+                    >
+                        Carlos Vasquez
+                    </a>
+                </span>
+            </div>
         </footer>
     );
 }

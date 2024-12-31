@@ -1,14 +1,12 @@
 {
-  "extends": "astro/tsconfigs/strict",
-  "include": [
-    ".astro/types.d.ts",
-    "**/*"
-  ],
-  "exclude": [
-    "dist"
-  ],
-  "compilerOptions": {
-    "jsx": "react-jsx",
-    "jsxImportSource": "react"
-  }
+    "extends": "astro/tsconfigs/strict",
+    "compilerOptions": {
+        "jsx": "react-jsx",
+        "jsxImportSource": "react"
+    },
+    "include": [
+        "src", // <= carpeta principal donde irá tu código
+        ".astro/types.d.ts" // <= definiciones de tipos que Astro genera
+    ],
+    "exclude": ["dist", "node_modules"]
 }

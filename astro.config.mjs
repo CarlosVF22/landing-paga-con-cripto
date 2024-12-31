@@ -13,11 +13,11 @@ export default defineConfig({
     integrations: [
         tailwind(),
         react(),
-        partytown({
-            config: {
-                forward: ["dataLayer.push", "gtag"],
-            },
-        }),
+        // partytown({
+        //     config: {
+        //         forward: ["dataLayer.push", "gtag"],
+        //     },
+        // }),
         sitemap(),
     ],
     output: "server",

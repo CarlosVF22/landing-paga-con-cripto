@@ -84,16 +84,6 @@ function ProductOverviewContent({ product }: { product: Product }) {
 
     const handleAddToCart = async () => {
         try {
-            console.log("click en el botón de agregar al carrito");
-            window.dataLayer = window.dataLayer || [];
-            window.dataLayer.push({
-                event: "add_to_cart",
-                item: {
-                    id: "XYZ123",
-                    name: "Nombre del producto",
-                    price: 100,
-                },
-            });
             addToCart({
                 id: product.id,
                 name: product.title,

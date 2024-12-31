@@ -6,6 +6,17 @@ import Footer from "../components/Footer";
 ---
 
 <Layout>
+    <head>
+        <!-- Google Tag Manager -->
+        <script type="text/partytown" is:inline>
+            if (window.location.hostname !== '') {
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', 'G-JZDH1CHXBS');
+            }
+        </script>
+    </head>
     <Header hiddenCallToAction={true} client:load />
     <CheckoutPage client:load />
     <Footer />

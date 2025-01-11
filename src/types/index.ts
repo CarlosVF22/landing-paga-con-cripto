@@ -1,21 +1,12 @@
 export interface Product {
-    id: number;
     title: string;
     body_html: string;
-    product_type: string;
-    tags: string;
-    handle: string;
-    status: string;
-    image: {
-        src: string;
-    };
-    images: {
-        src: string;
-    }[];
-    variants: {
-        price_usd: string;
-        price_btc: string;
-    }[];
+    price: string;
+    inventoryQuantity: number;
+    imageUrls: string[];
+    pvUsd: number;
+    pvBtc: string;
+    tcUsd: number;
 }
 
 // Tipos para los items del carrito

@@ -2,33 +2,35 @@
 import Layout from '../layouts/Layout.astro';
 import Hero from '../components/Hero';
 import ProductsGrid from '../components/ProductsGrid';
-import productsRaw from '../data/products.json';
+import productsData from '../data/products.json';
 import Header from '../components/Header';
 import type { Product } from '../types/index';
 import Footer from '../components/Footer';
 
 
 // DATA
-const products = productsRaw.map(product => {
-	return ({
-    id: product.id,
-    title: product.title,
-    body_html: product.body_html,
-    product_type: product.product_type,
-    handle: product.handle,
-    status: product.status,
-    image: {
-        src: product.image.src
-    },
-    images: product.images.map(img => ({
-        src: img.src
-    })),
-    variants: product.variants.map(variant => ({
-        price_usd: variant.price,
-        price_btc: product.price_btc
-    }))
-})
-}) as Product[];
+// const products = productsRaw.map(product => {
+// 	return ({
+//     id: 1,
+//     title: product.title,
+//     body_html: product.body_html,
+//     product_type: product.product_type,
+//     handle: product.handle,
+//     status: product.status,
+//     image: {
+//         src: product.image.src
+//     },
+//     images: product.images.map(img => ({
+//         src: img.src
+//     })),
+//     variants: product.variants.map(variant => ({
+//         price_usd: variant.price,
+//         price_btc: product.price_btc
+//     }))
+// })
+// }) as Product[];
+console.log(productsData);
+const products = productsData as Product[];
 ---
 
 <Layout>

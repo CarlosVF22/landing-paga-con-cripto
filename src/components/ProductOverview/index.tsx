@@ -41,9 +41,9 @@ function ProductOverviewContent({ product }: { product: Product }) {
             addToCart({
                 id: product.id,
                 name: product.title,
-                price_usd: product.variants[0].price_usd,
-                price_btc: product.variants[0].price_btc,
-                image: product.image.src,
+                price_usd: product.pvUsd,
+                price_btc: product.pvBtc,
+                image: product.imageUrls[0],
             });
             toast.success("Producto agregado al carrito");
         } catch (error) {
@@ -57,9 +57,9 @@ function ProductOverviewContent({ product }: { product: Product }) {
             addToCart({
                 id: product.id,
                 name: product.title,
-                price_usd: product.variants[0].price_usd,
-                price_btc: product.variants[0].price_btc,
-                image: product.image.src,
+                price_usd: product.pvUsd,
+                price_btc: product.pvBtc,
+                image: product.imageUrls[0],
             });
             window.location.href = "/checkout";
         } catch (error) {
@@ -79,18 +79,18 @@ function ProductOverviewContent({ product }: { product: Product }) {
                             {/* Image selector */}
                             <div className="mx-auto mt-6 hidden w-full max-w-2xl sm:block lg:max-w-none">
                                 <TabList className="grid grid-cols-4 gap-6">
-                                    {product.images.map((image) => (
+                                    {product.imageUrls.map((image) => (
                                         <Tab
-                                            key={image.src}
+                                            key={image}
                                             className="group relative flex h-24 cursor-pointer items-center justify-center rounded-md bg-white text-sm font-medium uppercase text-gray-900 hover:bg-gray-50 focus:outline-none focus:ring focus:ring-blue_primary/50 focus:ring-offset-4"
                                         >
                                             <span className="sr-only">
-                                                {image.src}
+                                                {image}
                                             </span>
                                             <span className="absolute inset-0 overflow-hidden rounded-md">
                                                 <img
                                                     alt=""
-                                                    src={image.src}
+                                                    src={image}
                                                     className="size-full object-contain"
                                                 />
                                             </span>
@@ -104,11 +104,11 @@ function ProductOverviewContent({ product }: { product: Product }) {
                             </div>
 
                             <TabPanels>
-                                {product.images.map((image) => (
-                                    <TabPanel key={image.src}>
+                                {product.imageUrls.map((image) => (
+                                    <TabPanel key={image}>
                                         <img
-                                            alt={image.src}
-                                            src={image.src}
+                                            alt={image}
+                                            src={image}
                                             className="aspect-square w-full object-contain sm:rounded-lg"
                                         />
                                     </TabPanel>
@@ -125,14 +125,14 @@ function ProductOverviewContent({ product }: { product: Product }) {
                             <div className="mt-3">
                                 <h2 className="sr-only">Product information</h2>
                                 <p className="text-2xl tracking-tight text-gray-900">
-                                    {product.variants[0].price_btc} BTC
+                                    {product.pvBtc} BTC
                                 </p>
                             </div>
 
                             <div className="mt-3">
                                 <h2 className="sr-only">Product information</h2>
                                 <p className="text-xl tracking-tight text-gray-900">
-                                    {product.variants[0].price_usd} USD
+                                    {product.pvUsd} USD
                                 </p>
                             </div>
 

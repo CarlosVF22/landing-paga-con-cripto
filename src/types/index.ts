@@ -6,7 +6,7 @@ export interface Product {
     price: string;
     inventoryQuantity: number;
     imageUrls: string[];
-    pvUsd: number;
+    pvUsd: string;
     pvBtc: string;
     tcUsd: number;
 }

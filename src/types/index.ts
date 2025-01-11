@@ -1,5 +1,7 @@
 export interface Product {
+    id: string;
     title: string;
+    handle: string;
     body_html: string;
     price: string;
     inventoryQuantity: number;

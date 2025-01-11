@@ -9,13 +9,13 @@ export default function ProductsGrid({ products }: { products: Product[] }) {
                 <div className="grid grid-cols-1 gap-y-4 sm:grid-cols-2 sm:gap-x-6 sm:gap-y-10 lg:grid-cols-3 lg:gap-x-8">
                     {products.map((product) => (
                         <div
-                            key={product.id}
+                            key={"1783746743"}
                             className="group relative flex flex-col overflow-hidden rounded-lg border border-gray-200 bg-white"
                         >
                             <img
                                 alt={product.title}
                                 title={product.title}
-                                src={product.image.src}
+                                src={product.imageUrls[0]}
                                 className="aspect-[3/4] w-full object-contain group-hover:opacity-75 sm:aspect-auto sm:h-96"
                                 loading="lazy"
                                 fetchPriority="low"
@@ -35,24 +35,14 @@ export default function ProductsGrid({ products }: { products: Product[] }) {
                                     </a>
                                 </h3>
                                 <div className="flex flex-1 flex-col justify-end">
-                                    <p className="text-sm italic text-gray-500">
+                                    {/* <p className="text-sm italic text-gray-500">
                                         {product.product_type}
+                                    </p> */}
+                                    <p className="text-base font-medium text-gray-900">
+                                        {product.pvBtc} BTC
                                     </p>
                                     <p className="text-base font-medium text-gray-900">
-                                        {
-                                            product.variants.find(
-                                                (variant) => variant.price_btc
-                                            )?.price_btc
-                                        }{" "}
-                                        BTC
-                                    </p>
-                                    <p className="text-base font-medium text-gray-900">
-                                        {
-                                            product.variants.find(
-                                                (variant) => variant.price_usd
-                                            )?.price_usd
-                                        }{" "}
-                                        USD
+                                        {product.pvUsd} USD
                                     </p>
                                 </div>
                             </div>

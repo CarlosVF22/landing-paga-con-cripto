@@ -18,7 +18,7 @@ jobs:
             - name: Download file from S3
               run: |
                   # Ajusta la ruta de tu bucket y el path local según tu proyecto
-                  aws s3 cp s3://TU_BUCKET/ruta/al/archivo ./src/data/archivo.txt
+                  aws s3 cp s3://pagaconcripto-products/products.json ./src/data/products.json
             - name: Commit changes
               run: |
                   git config user.name "CarlosVF22"

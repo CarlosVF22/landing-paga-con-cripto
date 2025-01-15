@@ -1,36 +1,24 @@
 name: Update from S3
-
 on:
-    # Se ejecuta todos los días a las 05:00 AM, por ejemplo
     schedule:
-        - cron: "0 5 * * *"
-    # Permite ejecución manual (botón "Run workflow" en GitHub)
-    workflow_dispatch:
-
+        - cron: 0 5 * * *
+    workflow_dispatch: null
 jobs:
     update-s3:
         runs-on: ubuntu-latest
-
         steps:
-            # 1) Checkout del repositorio
             - name: Checkout repository
               uses: actions/checkout@v3
-
-            # 2) Configurar credenciales de AWS
             - name: Configure AWS credentials
               uses: aws-actions/configure-aws-credentials@v1
               with:
                   aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
                   aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-                  aws-region: us-east-2 # Ajusta a tu región si es distinto
-
-            # 3) Descargar archivo desde S3
+                  aws-region: us-east-1
             - name: Download file from S3
               run: |
                   # Ajusta la ruta de tu bucket y el path local según tu proyecto
-                  aws s3 cp s3://pagaconcripto-products/products.json ./src/data/products.json
-
-            # 4) Hacer commit y push si hay cambios
+                  aws s3 cp s3://TU_BUCKET/ruta/al/archivo ./src/data/archivo.txt
             - name: Commit changes
               run: |
                   git config user.name "CarlosVF22"

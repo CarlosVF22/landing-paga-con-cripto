@@ -5,6 +5,8 @@ on:
     workflow_dispatch: null
 jobs:
     update-s3:
+        permissions:
+            contents: write
         runs-on: ubuntu-latest
         steps:
             - name: Checkout repository
